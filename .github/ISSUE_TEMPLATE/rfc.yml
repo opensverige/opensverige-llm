@@ -1,0 +1,46 @@
+name: RFC-förslag
+description: Föreslå scope, spår, data, eval, release eller styrningsändring
+title: "[RFC]: "
+labels: ["rfc", "discussion"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem och användare
+      description: Vem har problemet, och vad ligger utanför scope?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Förslag
+      description: Beskriv minsta rimliga lösning.
+    validations:
+      required: true
+  - type: textarea
+    id: eval
+    attributes:
+      label: Eval och baslinjer
+      description: Mått, baslinjer, acceptans- och stoppkriterier.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data, licens och integritet
+      description: Källor, rättigheter, personuppgifter och borttagning.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risker och juridiska gränser
+      description: Missbruk, mänsklig kontroll och påståenden systemet inte får göra.
+    validations:
+      required: true
+  - type: textarea
+    id: poll
+    attributes:
+      label: Föreslagna pollalternativ
+    validations:
+      required: true

@@ -1,0 +1,34 @@
+name: Felrapport
+description: Rapportera ett reproducerbart fel i kod eller dokumentation
+title: "[Fel]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Ta bort personuppgifter, hemligheter och skyddsvärda data.
+  - type: textarea
+    id: description
+    attributes:
+      label: Beskrivning
+      description: Vad hände och vad förväntade du dig?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduktion
+      description: Minsta möjliga steg, commit/version och miljö.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidens
+      description: Loggar eller evalresultat utan känslig information.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Kontroll
+      options:
+        - label: Detta är inte en säkerhetsincident och innehåller inga skyddsvärda data.
+          required: true

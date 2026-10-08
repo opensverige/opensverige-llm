@@ -1,0 +1,39 @@
+name: Dataförslag
+description: Föreslå en datakälla utan att ladda upp datan
+title: "[Data]: "
+labels: ["data", "needs-review"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Källa
+      description: Publik länk eller identifierare. Ladda inte upp materialet här.
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Syfte och representativitet
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Licens och användningsvillkor
+      description: Stöd uttryckligen träning och återpublicering?
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Integritet och sekretess
+      description: Personuppgifter, känsliga uppgifter, sekretess och borttagningsprocess.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Intygande
+      options:
+        - label: Jag har inte bifogat data och gör inget anspråk på att förslaget redan är juridiskt godkänt.
+          required: true

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/opensverige/opensverige-llm/schemas/data-record.schema.json",
+  "title": "OpenSverige data record metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "content", "language", "provenance", "rights", "privacy"],
+  "properties": {
+    "record_id": { "type": "string" },
+    "content": { "type": "object" },
+    "language": { "type": "string" },
+    "provenance": {
+      "type": "object",
+      "required": ["source_type", "collected_at"],
+      "properties": {
+        "source_type": { "type": "string" },
+        "source_uri": { "type": ["string", "null"], "format": "uri-reference" },
+        "collected_at": { "type": "string", "format": "date" },
+        "transformation": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": ["license", "training_allowed", "redistribution_allowed"],
+      "properties": {
+        "license": { "type": "string" },
+        "training_allowed": { "type": "boolean" },
+        "redistribution_allowed": { "type": "boolean" },
+        "terms_uri": { "type": ["string", "null"], "format": "uri-reference" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "required": ["personal_data", "confidential", "review_status"],
+      "properties": {
+        "personal_data": { "type": "boolean" },
+        "confidential": { "type": "boolean" },
+        "review_status": {
+          "type": "string",
+          "enum": ["not_reviewed", "approved", "rejected"]
+        },
+        "removal_key": { "type": ["string", "null"] }
+      }
+    },
+    "split": {
+      "type": "string",
+      "enum": ["train", "dev", "test", "unassigned"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "synthetic-router-001",
+  "task": "decision_router",
+  "language": "sv-SE",
+  "input": {
+    "request": "Sammanfatta det uppladdade dokumentet.",
+    "available_routes": ["document_summary", "legal_assessment", "human_review"]
+  },
+  "expected": {
+    "route": "document_summary",
+    "acceptable_routes": ["document_summary"],
+    "must_abstain": false
+  },
+  "scoring": {
+    "incorrect_route_cost": 1,
+    "unsafe_route_cost": 5
+  },
+  "slices": ["synthetic", "routine"],
+  "provenance": {
+    "source_type": "handwritten_synthetic",
+    "source_id": null,
+    "license": "CC0-1.0",
+    "synthetic": true,
+    "created_at": "2026-10-08"
+  },
+  "risk": {
+    "contains_personal_data": false,
+    "contains_confidential_data": false,
+    "reviewed": true,
+    "notes": "Endast ett format-exempel; inte en validerad evalpost."
+  }
+}

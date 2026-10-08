@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/opensverige/opensverige-llm/schemas/benchmark-item.schema.json",
+  "title": "OpenSverige benchmark item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "task", "language", "input", "expected", "provenance", "risk"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+    "task": {
+      "type": "string",
+      "enum": ["requirement_bid_match", "decision_router"]
+    },
+    "language": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+    "input": { "type": "object" },
+    "expected": { "type": "object" },
+    "scoring": {
+      "type": "object",
+      "description": "Optional task-specific scoring configuration."
+    },
+    "slices": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "license", "synthetic"],
+      "properties": {
+        "source_type": { "type": "string" },
+        "source_id": { "type": ["string", "null"] },
+        "license": { "type": "string" },
+        "synthetic": { "type": "boolean" },
+        "created_at": { "type": "string", "format": "date" }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contains_personal_data", "contains_confidential_data", "reviewed"],
+      "properties": {
+        "contains_personal_data": { "const": false },
+        "contains_confidential_data": { "const": false },
+        "reviewed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
